@@ -1,0 +1,44 @@
+@model Produto
+@{
+    var novo = Model.Id == 0;
+    ViewData["Title"] = novo ? "Cadastrar" : "Editar";
+}
+
+<h2>@(novo ? "Novo registro" : "Editando: " + Model.Nome)</h2>
+
+<form asp-action="@(novo ? "Create" : "Edit")" method="post" style="max-width: 600px">
+    <input type="hidden" asp-for="Id" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Descricao" class="form-label"></label>
+        <textarea asp-for="Descricao" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Preco" class="form-label"></label>
+        <input asp-for="Preco" class="form-control" />
+        <span asp-validation-for="Preco" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Estoque" class="form-label"></label>
+        <input asp-for="Estoque" class="form-control" />
+        <span asp-validation-for="Estoque" class="text-danger"></span>
+    </div>
+    <div class="form-check mb-3">
+        <input asp-for="Ativo" class="form-check-input" />
+        <label asp-for="Ativo" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

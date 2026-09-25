@@ -1,0 +1,22 @@
+@model Produto
+@{
+    ViewData["Title"] = Model.Nome;
+}
+
+<h2>@Model.Nome</h2>
+
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Nome)</dt>
+    <dd class="col-sm-9">@Model.Nome</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Descricao)</dt>
+    <dd class="col-sm-9">@Model.Descricao</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Preco)</dt>
+    <dd class="col-sm-9">@Model.Preco.ToString("N2")</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Estoque)</dt>
+    <dd class="col-sm-9">@Model.Estoque</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Ativo)</dt>
+    <dd class="col-sm-9">@(Model.Ativo ? "Sim" : "Não")</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-outline-secondary">Voltar</a>

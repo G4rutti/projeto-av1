@@ -1,0 +1,45 @@
+@model Cliente
+@{
+    var novo = Model.Id == 0;
+    ViewData["Title"] = novo ? "Cadastrar" : "Editar";
+}
+
+<h2>@(novo ? "Novo registro" : "Editando: " + Model.Nome)</h2>
+
+<form asp-action="@(novo ? "Create" : "Edit")" method="post" style="max-width: 600px">
+    <input type="hidden" asp-for="Id" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Telefone" class="form-label"></label>
+        <input asp-for="Telefone" class="form-control" />
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Endereco" class="form-label"></label>
+        <input asp-for="Endereco" class="form-control" />
+        <span asp-validation-for="Endereco" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DataCadastro" class="form-label"></label>
+        <input asp-for="DataCadastro" class="form-control" />
+        <span asp-validation-for="DataCadastro" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

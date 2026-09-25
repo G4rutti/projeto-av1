@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Loja</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    @{
+        var atual = ViewContext.RouteData.Values["controller"]?.ToString();
+        var menu = new[] { ("Cliente", "Clientes"), ("Produto", "Produtos"), ("Fornecedor", "Fornecedores") };
+    }
+    <nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" asp-controller="Cliente" asp-action="Index">Loja</a>
+            <ul class="navbar-nav">
+                @foreach (var (controller, texto) in menu)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link @(atual == controller ? "active" : "")" asp-controller="@controller" asp-action="Index">@texto</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="conteudo">
+            @RenderBody()
+        </div>
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

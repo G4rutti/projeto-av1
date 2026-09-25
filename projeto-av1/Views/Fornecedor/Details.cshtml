@@ -1,0 +1,22 @@
+@model Fornecedor
+@{
+    ViewData["Title"] = Model.RazaoSocial;
+}
+
+<h2>@Model.RazaoSocial</h2>
+
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.RazaoSocial)</dt>
+    <dd class="col-sm-9">@Model.RazaoSocial</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Cnpj)</dt>
+    <dd class="col-sm-9">@Model.Cnpj</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Email)</dt>
+    <dd class="col-sm-9">@Model.Email</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Telefone)</dt>
+    <dd class="col-sm-9">@Model.Telefone</dd>
+    <dt class="col-sm-3">@Html.DisplayNameFor(x => x.Cidade)</dt>
+    <dd class="col-sm-9">@Model.Cidade</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-outline-secondary">Voltar</a>

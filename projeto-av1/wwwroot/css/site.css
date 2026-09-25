@@ -1,0 +1,21 @@
+body {
+  background: #f1f3f5;
+}
+
+.conteudo {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+  margin-bottom: 32px;
+}
+
+.conteudo h2 {
+  margin-bottom: 20px;
+}
+
+.table th {
+  font-size: .85rem;
+  text-transform: uppercase;
+  color: #6c757d;
+}
